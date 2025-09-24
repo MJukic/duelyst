@@ -1,0 +1,24 @@
+path,system,purpose,notes
+app/common/config.js,Core config,Board dimensions, mana rules, and pattern constants used throughout the engine.
+app/common/event_types.js,Event bus,Enumerates engine events for modifiers, turns, and FX triggers.
+app/common/utils/utils_game_session.coffee,Utility helpers,Shared board/targeting helpers including spawn validation and random selection.
+app/sdk/gameSession.coffee,Turn engine,Authoritative queue, turn sequencing, draw timing, and win-state evaluation.
+app/sdk/board.coffee,Board model,Tile occupancy, adjacency queries, and spawn validation for entities.
+app/sdk/entities/entity.coffee,Entity base,Movement/attack allowances, exhaustion, and general death handling.
+app/sdk/entities/movementRange.coffee,Movement logic,BFS pathfinding respecting obstructions/flying and caching of valid move paths.
+app/sdk/entities/attackRange.coffee,Targeting logic,Precomputed attack atlases, LOS tests, and valid target resolution.
+app/sdk/cards/deck.coffee,Deck/hand,Mulligan limits, draw/burn logic, and hand management including replace rules.
+app/sdk/cards/card.coffee,Card base,Shared card state, modifier stacking/dispel, and follow-up handling.
+app/sdk/actions/damageAction.coffee,Combat resolution,Applies damage with staged modifiers and schedules deaths.
+app/sdk/actions/attackAction.coffee,Combat resolution,Extends DamageAction for explicit attacks and tracks strikeback state.
+app/sdk/modifiers/modifier.coffee,Modifier system,Defines stacking/duration rules, aura management, and trigger hooks.
+app/sdk/modifiers/modifierStrikeback.coffee,Keyword: Strikeback,Counterattack hook and melee range gating for retaliation.
+app/sdk/modifiers/modifierProvoke.coffee,Keyword: Provoke,Aura applying provoked state to adjacent enemies.
+app/sdk/modifiers/modifierProvoked.coffee,Status: Provoked,Blocks moves and enforces attacking provoking units.
+app/sdk/modifiers/modifierFlying.coffee,Keyword: Flying,Sets infinite move speed so units ignore pathing limits.
+app/sdk/modifiers/modifierRanged.coffee,Keyword: Ranged,Extends reach to full board for attacks.
+app/sdk/modifiers/modifierFrenzy.coffee,Keyword: Frenzy,Queues extra melee attacks on adjacent enemies when attacking.
+app/sdk/modifiers/modifierBackstab.coffee,Keyword: Backstab,Bonus damage from rear arc and suppresses counterattacks.
+app/sdk/modifiers/modifierBattlePet.coffee,Keyword: Battle Pet,Automated action planner and player-control restriction.
+app/sdk/modifiers/modifierOpeningGambit.coffee,Keyword: Opening Gambit,Triggers once upon being played via buffering events.
+app/sdk/modifiers/modifierDyingWish.coffee,Keyword: Dying Wish,Hooks death to run final effects after removal.
