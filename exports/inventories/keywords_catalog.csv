@@ -1,0 +1,15 @@
+keyword,summary,trigger_or_condition,core_effect,source_files
+Provoke,Aura forces adjacent enemies to target provoker,Enemies within 1 tile enter Provoked status,Stops moves and enforces attacks on provoker,app/sdk/modifiers/modifierProvoke.coffee;app/sdk/modifiers/modifierProvoked.coffee
+Provoked,Status applied by provoke/ranged provoke,Unit attempts explicit move or attack,Invalidates moves and non-provoker attacks,app/sdk/modifiers/modifierProvoked.coffee
+Flying,Movement trait granting full mobility,Passive while modifier active,Sets speed to CONFIG.SPEED_INFINITE,app/sdk/modifiers/modifierFlying.coffee;app/common/config.js
+Ranged,Attack trait extending reach,Passive while modifier active,Adds CONFIG.REACH_RANGED reach over melee,app/sdk/modifiers/modifierRanged.coffee;app/common/config.js
+Frenzy,Multi-strike on melee attack,On explicit melee attack declaration,Queues extra attacks against other adjacent enemies,app/sdk/modifiers/modifierFrenzy.coffee;app/sdk/board.coffee
+Backstab,Directional bonus on attack,When attacker is behind target or victim always-backstabbed,Adds damage bonus and disables counter,app/sdk/modifiers/modifierBackstab.coffee
+Strikeback,Universal counterattack hook,When enemy attack action targets unit,Creates retaliatory attack if in reach,app/sdk/modifiers/modifierStrikeback.coffee;app/sdk/entities/unit.coffee
+Battle Pet,Automated minion AI,At battle pet controller update window,Chooses move/attack automatically and blocks manual orders,app/sdk/modifiers/modifierBattlePet.coffee;app/sdk/entities/entity.coffee
+Opening Gambit,Play-once trigger,When card is played onto board,Buffers events then runs custom onOpeningGambit logic,app/sdk/modifiers/modifierOpeningGambit.coffee
+Dying Wish,Death trigger,When die action resolves on owning unit,Runs onDyingWish after removal scheduling,app/sdk/modifiers/modifierDyingWish.coffee
+Aura (generic),Persistent modifier broadcasting effects,During modifier activation/updates,Applies sub-modifiers to entities matching radius/filters,app/sdk/modifiers/modifier.coffee
+Dispel/Silence,Effect removing removable modifiers,When silence/cleanse invoked on card,Iterates modifiers and removes those with isRemovable flag,app/sdk/cards/card.coffee
+Turn Start/End Hooks,Phase events for modifiers,When EVENTS.start_turn or end_turn fired,Modifiers update durations/react to timing,app/sdk/modifiers/modifier.coffee;app/common/event_types.js
+Card Draw,Turn refill mechanic,At end-turn queue empty draw window,Deck generates actionsDrawNewCards respecting hand size,app/sdk/gameSession.coffee;app/sdk/cards/deck.coffee
